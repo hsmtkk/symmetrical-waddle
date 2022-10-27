@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dev-dockerfile
+    command: sleep infinity
+    ports:
+      - 8000:80
+    volumes:
+      - .:/workspace
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: cms
+      MYSQL_USER: cmsuser
+      MYSQL_PASSWORD: cmspass
+    image: mysql:8
