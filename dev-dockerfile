@@ -1,4 +1,5 @@
 FROM php:7.4-cli AS runtime
 RUN apt-get -y update \
  && apt-get -y install git libicu-dev zip \
- && docker-php-ext-install intl
+ && docker-php-ext-install intl \
+ && docker-php-ext-install pdo_mysql
