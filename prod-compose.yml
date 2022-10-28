@@ -6,7 +6,7 @@ services:
       dockerfile: prod-dockerfile
     environment:
       MYSQL_HOST: mysql
-      MYSQL_DATABASE: cms
+      MYSQL_DATABASE: cake_cms
       MYSQL_USER: cmsuser
       MYSQL_PASSWORD: cmspass
     ports:
@@ -16,7 +16,9 @@ services:
   mysql:
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: cms
+      MYSQL_DATABASE: cake_cms
       MYSQL_USER: cmsuser
       MYSQL_PASSWORD: cmspass
     image: mysql:8
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
