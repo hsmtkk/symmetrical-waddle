@@ -4,6 +4,11 @@ services:
     build:
       context: .
       dockerfile: prod-dockerfile
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: cms
+      MYSQL_USER: cmsuser
+      MYSQL_PASSWORD: cmspass
     ports:
       - 8000:80
     volumes:
